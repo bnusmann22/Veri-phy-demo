@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veri-phy : Trust before Transaction</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sb">
+  <div class="sb-hd">
+    <div class="logo"><div class="logo-box"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 5.5V10c0 3.87 2.95 7.49 7 8.5 4.05-1.01 7-4.63 7-8.5V5.5L10 2z" fill="white"/><path d="M7.5 10l2 2 3-3" stroke="#14B8A6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="logo-txt">Veri-phy</span></div>
+    <div class="sb-meta">30 Screens &middot; Android Handoff &middot; Dark Teal</div>
+  </div>
+  <div class="sb-list">
+    <div class="grp"><div class="grp-lbl">Onboarding</div>
+      <div class="si on" onclick="go(0)"><div class="si-n">01</div><div class="si-lbl">Splash Screen</div></div>
+      <div class="si" onclick="go(1)"><div class="si-n">02</div><div class="si-lbl">Welcome Screen</div></div>
+      <div class="si" onclick="go(2)"><div class="si-n">03</div><div class="si-lbl">Product Explanation</div></div>
+      <div class="si" onclick="go(3)"><div class="si-n">04</div><div class="si-lbl">Merchant Type Selection</div></div>
+      <div class="si" onclick="go(4)"><div class="si-n">05</div><div class="si-lbl">Payment Channel Setup</div></div>
+      <div class="si" onclick="go(5)"><div class="si-n">06</div><div class="si-lbl">Bank Account Connection</div></div>
+      <div class="si" onclick="go(6)"><div class="si-n">07</div><div class="si-lbl">Virtual Account Setup</div></div>
+    </div>
+    <div class="grp"><div class="grp-lbl">Permissions</div>
+      <div class="si" onclick="go(7)"><div class="si-n">08</div><div class="si-lbl">SMS Protection</div></div>
+      <div class="si" onclick="go(8)"><div class="si-n">09</div><div class="si-lbl">Notification Access</div></div>
+      <div class="si" onclick="go(9)"><div class="si-n">10</div><div class="si-lbl">Overlay Permission</div></div>
+      <div class="si" onclick="go(10)"><div class="si-n">11</div><div class="si-lbl">Battery Optimization</div></div>
+      <div class="si" onclick="go(11)"><div class="si-n">12</div><div class="si-lbl">Protection Activated</div></div>
+    </div>
+    <div class="grp"><div class="grp-lbl">Core App</div>
+      <div class="si" onclick="go(12)"><div class="si-n">13</div><div class="si-lbl">Home Screen</div></div>
+      <div class="si" onclick="go(13)"><div class="si-n">14</div><div class="si-lbl">Protection Status</div></div>
+    </div>
+    <div class="grp"><div class="grp-lbl">Overlays</div>
+      <div class="si" onclick="go(14)"><div class="si-n">15</div><div class="si-lbl">Overlay Interactions</div></div>
+      <div class="si" onclick="go(15)"><div class="si-n">16</div><div class="si-lbl">VERIFIED Overlay</div></div>
+      <div class="si" onclick="go(16)"><div class="si-n">17</div><div class="si-lbl">PENDING Overlay</div></div>
+      <div class="si" onclick="go(17)"><div class="si-n">18</div><div class="si-lbl">FAKE Overlay</div></div>
+    </div>
+    <div class="grp"><div class="grp-lbl">Activity &amp; Fraud</div>
+      <div class="si" onclick="go(18)"><div class="si-n">19</div><div class="si-lbl">Activity History</div></div>
+      <div class="si" onclick="go(19)"><div class="si-n">20</div><div class="si-lbl">Fraud Details</div></div>
+      <div class="si" onclick="go(20)"><div class="si-n">21</div><div class="si-lbl">Why This Verdict?</div></div>
+      <div class="si" onclick="go(21)"><div class="si-n">22</div><div class="si-lbl">Screenshot Upload</div></div>
+      <div class="si" onclick="go(22)"><div class="si-n">23</div><div class="si-lbl">Receipt Verification</div></div>
+      <div class="si" onclick="go(23)"><div class="si-n">24</div><div class="si-lbl">Fraud Report</div></div>
+    </div>
+    <div class="grp"><div class="grp-lbl">Settings</div>
+      <div class="si" onclick="go(24)"><div class="si-n">25</div><div class="si-lbl">Settings</div></div>
+      <div class="si" onclick="go(25)"><div class="si-n">26</div><div class="si-lbl">Privacy Controls</div></div>
+    </div>
+    <div class="grp"><div class="grp-lbl">System States</div>
+      <div class="si" onclick="go(26)"><div class="si-n">27</div><div class="si-lbl">Error State</div></div>
+      <div class="si" onclick="go(27)"><div class="si-n">28</div><div class="si-lbl">Empty State</div></div>
+      <div class="si" onclick="go(28)"><div class="si-n">29</div><div class="si-lbl">Offline State</div></div>
+      <div class="si" onclick="go(29)"><div class="si-n">30</div><div class="si-lbl">Realtime Notification</div></div>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="main-hd">
+    <div><div class="mh-title" id="scrTitle">01 &mdash; Splash Screen</div><div class="mh-sub">Veri-phy Android &middot; 30 Screens &middot; Use &larr;&rarr; keys or click list</div></div>
+    <div class="mh-r"><span class="ctr" id="ctr">1 / 30</span>
+      <div class="nav-b" onclick="prev()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></div>
+      <div class="nav-b" onclick="next()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </div>
+  </div>
+  <div class="main-body">
+    <div class="phone-frame">
+      <div class="phone-scr">
+        <div class="notch"></div><div class="cam"></div>
+
+<!-- S01 SPLASH -->
+<div class="scr on" id="s0" style="background:linear-gradient(160deg,#071f1e,#0B3D3A,#0F5C57);align-items:center;justify-content:center">
+  <div style="display:flex;flex-direction:column;align-items:center">
+    <div style="width:80px;height:80px;border-radius:24px;background:rgba(20,184,166,0.15);border:2px solid rgba(20,184,166,0.3);display:flex;align-items:center;justify-content:center;animation:si-anim 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.2s both;margin-bottom:18px">
+      <svg width="38" height="38" viewBox="0 0 40 40" fill="none"><path d="M20 4L6 11v10c0 7.74 5.9 14.98 14 17 8.1-2.02 14-9.26 14-17V11L20 4z" fill="white" opacity="0.2"/><path d="M20 4L6 11v10c0 7.74 5.9 14.98 14 17 8.1-2.02 14-9.26 14-17V11L20 4z" stroke="#14B8A6" stroke-width="1.5"/><path d="M14 20l4 4 8-8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div style="font-size:30px;font-weight:900;color:white;letter-spacing:-1px;animation:pu 0.5s ease 0.5s both">Veri-phy</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:6px;animation:pu 0.5s ease 0.7s both;letter-spacing:0.5px">Trust before transaction.</div>
+    <div style="width:44px;height:3px;background:rgba(255,255,255,0.12);border-radius:2px;margin-top:52px;overflow:hidden;animation:pu 0.4s ease 1s both"><div style="height:100%;background:#14B8A6;border-radius:2px;animation:pf 2.5s ease 1.2s both;width:0"></div></div>
+  </div>
+</div>
+
+<!-- S02 WELCOME -->
+<div class="scr" id="s1" style="background:linear-gradient(160deg,#071f1e,#0B3D3A)">
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;gap:14px">
+    <div style="width:148px;height:148px;border-radius:36px;background:rgba(20,184,166,0.1);border:1.5px solid rgba(20,184,166,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:6px">
+      <svg width="72" height="72" viewBox="0 0 80 80" fill="none"><rect x="10" y="8" width="60" height="64" rx="10" fill="white" opacity="0.06" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/><rect x="20" y="20" width="40" height="6" rx="3" fill="#14B8A6" opacity="0.4"/><rect x="20" y="30" width="28" height="4" rx="2" fill="rgba(255,255,255,0.2)"/><rect x="20" y="38" width="32" height="4" rx="2" fill="rgba(255,255,255,0.2)"/><circle cx="58" cy="56" r="14" fill="#0B3D3A" stroke="#14B8A6" stroke-width="2"/><path d="M52 56l4 4 8-8" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div style="font-size:24px;font-weight:900;color:white;text-align:center;letter-spacing:-0.8px;line-height:1.15">Payment protection<br>for <span style="color:#14B8A6">merchants like you.</span></div>
+    <div style="font-size:12.5px;color:rgba(255,255,255,0.5);text-align:center;line-height:1.65;max-width:220px">Know if a payment alert is real before you release your goods. Instant. Silent. Reliable.</div>
+    <div style="display:flex;gap:6px;margin-top:4px"><div style="width:18px;height:6px;border-radius:3px;background:#14B8A6"></div><div style="width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,0.2)"></div><div style="width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,0.2)"></div></div>
+  </div>
+  <div style="background:#040D0C;padding:18px 20px 32px;display:flex;flex-direction:column;gap:10px;flex-shrink:0">
+    <button class="btn-full btn-pr">Get Started &mdash; It&apos;s Free</button>
+    <button class="btn-full btn-gh">I already have an account</button>
+  </div>
+</div>
+
+<!-- S03 PRODUCT EXPLANATION -->
+<div class="scr" id="s2" style="background:white">
+  <div class="sbl" style="background:white;color:#0F172A"><span style="font-weight:700">9:41</span></div>
+  <div style="flex:1;padding:24px 22px;display:flex;flex-direction:column;justify-content:center">
+    <div style="font-size:10px;font-weight:700;color:#14B8A6;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px">How Veri-phy works</div>
+    <div style="width:100%;height:134px;background:#F7F9FB;border-radius:16px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid #E2E8F0">
+      <svg width="220" height="100" viewBox="0 0 220 100" fill="none">
+        <rect x="8" y="10" width="55" height="80" rx="8" fill="#0B3D3A" opacity="0.08"/>
+        <rect x="14" y="18" width="43" height="6" rx="3" fill="#0B3D3A" opacity="0.2"/>
+        <rect x="14" y="28" width="28" height="4" rx="2" fill="#14B8A6" opacity="0.5"/>
+        <rect x="14" y="36" width="35" height="4" rx="2" fill="#0B3D3A" opacity="0.12"/>
+        <path d="M72 50 L92 50" stroke="#14B8A6" stroke-width="2" stroke-dasharray="4 2"/>
+        <polygon points="92,46 100,50 92,54" fill="#14B8A6"/>
+        <circle cx="118" cy="50" r="18" fill="#0B3D3A" opacity="0.08"/>
+        <circle cx="118" cy="50" r="12" stroke="#14B8A6" stroke-width="2" stroke-dasharray="3 3"/>
+        <path d="M114 50l3 3 6-6" stroke="#0B3D3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M145 50 L163 50" stroke="#14B8A6" stroke-width="2" stroke-dasharray="4 2"/>
+        <polygon points="163,46 171,50 163,54" fill="#14B8A6"/>
+        <rect x="173" y="35" width="16" height="28" rx="8" fill="#22C55E"/>
+        <path d="M178 49l2 2 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div style="font-size:22px;font-weight:800;color:#0F172A;letter-spacing:-0.6px;margin-bottom:10px;line-height:1.2">Alert arrives.<br>Veri-phy checks.<br>You&apos;re safe.</div>
+    <div style="font-size:12.5px;color:#64748B;line-height:1.65">Every payment SMS is verified against the real bank ledger. You see VERIFIED, PENDING, or FAKE &mdash; before you release a single item.</div>
+  </div>
+  <div style="background:white;padding:16px 20px 28px;border-top:1px solid #E2E8F0;flex-shrink:0;display:flex;flex-direction:column;gap:10px">
+    <button class="btn-full btn-pr">Got it &mdash; Let&apos;s set up</button>
+    <div style="display:flex;gap:6px;justify-content:center"><div style="width:6px;height:6px;border-radius:3px;background:#E2E8F0"></div><div style="width:18px;height:6px;border-radius:3px;background:#0B3D3A"></div><div style="width:6px;height:6px;border-radius:3px;background:#E2E8F0"></div></div>
+  </div>
+</div>
+
+<!-- S04 MERCHANT TYPE -->
+<div class="scr" id="s3" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div style="padding:14px 20px 0;flex-shrink:0">
+    <div style="font-size:10px;font-weight:700;color:#14B8A6;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Step 1 of 4</div>
+    <div style="font-size:20px;font-weight:800;color:#0F172A;letter-spacing:-0.5px;margin-bottom:6px;line-height:1.2">What kind of merchant are you?</div>
+    <div style="font-size:12px;color:#64748B;margin-bottom:14px">Choose your category &mdash; we&apos;ll tailor your protection.</div>
+  </div>
+  <div class="scroll" style="padding:0 16px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:#EAFBF8;border:2px solid #14B8A6;border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer">
+        <div style="width:46px;height:46px;border-radius:14px;margin:0 auto 10px;background:rgba(20,184,166,0.15);display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><rect x="6" y="4" width="20" height="24" rx="3" fill="#0B3D3A" opacity="0.15" stroke="#0B3D3A" stroke-width="1.5"/><rect x="10" y="8" width="12" height="8" rx="1" fill="#14B8A6" opacity="0.4"/><circle cx="12" cy="20" r="1.5" fill="#0B3D3A"/><circle cx="16" cy="20" r="1.5" fill="#0B3D3A"/><circle cx="20" cy="20" r="1.5" fill="#14B8A6"/></svg></div>
+        <div style="font-size:12px;font-weight:700;color:#0B3D3A">POS Agent</div>
+        <div style="font-size:10px;color:#64748B;margin-top:3px">Card &amp; transfer</div>
+        <div style="width:16px;height:16px;background:#14B8A6;border-radius:50%;margin:8px auto 0;display:flex;align-items:center;justify-content:center"><svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polyline points="2 6 5 9 10 3"/></svg></div>
+      </div>
+      <div style="background:#F7F9FB;border:2px solid #E2E8F0;border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer">
+        <div style="width:46px;height:46px;border-radius:14px;margin:0 auto 10px;background:#FFF7ED;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><path d="M8 14h16l-3 14H11L8 14z" fill="#F59E0B" opacity="0.2" stroke="#92400E" stroke-width="1.5"/><path d="M12 14V10a4 4 0 0 1 8 0v4" stroke="#92400E" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div style="font-size:12px;font-weight:700;color:#0F172A">Market Trader</div>
+        <div style="font-size:10px;color:#64748B;margin-top:3px">Open market</div>
+      </div>
+      <div style="background:#F7F9FB;border:2px solid #E2E8F0;border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer">
+        <div style="width:46px;height:46px;border-radius:14px;margin:0 auto 10px;background:#EFF6FF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><rect x="10" y="3" width="12" height="26" rx="3" fill="#3B82F6" opacity="0.15" stroke="#1D4ED8" stroke-width="1.5"/><rect x="12" y="7" width="8" height="12" rx="1" stroke="#1D4ED8" stroke-width="1.2"/><circle cx="16" cy="25" r="1.5" fill="#1D4ED8"/></svg></div>
+        <div style="font-size:12px;font-weight:700;color:#0F172A">Phone Seller</div>
+        <div style="font-size:10px;color:#64748B;margin-top:3px">Electronics</div>
+      </div>
+      <div style="background:#F7F9FB;border:2px solid #E2E8F0;border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer">
+        <div style="width:46px;height:46px;border-radius:14px;margin:0 auto 10px;background:#F0FDF4;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#15803D" stroke-width="1.5"/><path d="M22 10a7 7 0 1 0-5 12.5L12 26l1.5-5A7 7 0 0 0 22 10z" fill="#25D366" opacity="0.2" stroke="#15803D" stroke-width="1" stroke-linejoin="round"/></svg></div>
+        <div style="font-size:12px;font-weight:700;color:#0F172A">WhatsApp Vendor</div>
+        <div style="font-size:10px;color:#64748B;margin-top:3px">Social commerce</div>
+      </div>
+      <div style="background:#F7F9FB;border:2px solid #E2E8F0;border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer">
+        <div style="width:46px;height:46px;border-radius:14px;margin:0 auto 10px;background:#FDF4FF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><circle cx="10" cy="24" r="4" stroke="#7E22CE" stroke-width="1.5"/><circle cx="22" cy="24" r="4" stroke="#7E22CE" stroke-width="1.5"/><path d="M10 20h5l4-7h4l2 7" stroke="#7E22CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div style="font-size:12px;font-weight:700;color:#0F172A">Dispatch Rider</div>
+        <div style="font-size:10px;color:#64748B;margin-top:3px">Delivery &amp; COD</div>
+      </div>
+      <div style="background:#F7F9FB;border:2px solid #E2E8F0;border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer">
+        <div style="width:46px;height:46px;border-radius:14px;margin:0 auto 10px;background:#FFF7ED;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><path d="M4 28V8a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v20l-4-3-4 3-4-3-4 3-4-3-4 3z" stroke="#D97706" stroke-width="1.5" stroke-linejoin="round"/><line x1="10" y1="13" x2="22" y2="13" stroke="#D97706" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="18" x2="18" y2="18" stroke="#D97706" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div style="font-size:12px;font-weight:700;color:#0F172A">Other Business</div>
+        <div style="font-size:10px;color:#64748B;margin-top:3px">All merchants</div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:14px 18px 28px;flex-shrink:0;background:white;border-top:1px solid #E2E8F0"><button class="btn-full btn-pr">Continue as POS Agent</button></div>
+</div>
+
+<!-- S05 PAYMENT CHANNEL -->
+<div class="scr" id="s4" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div class="topbar"><div class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></div><div class="pg-title">Payment Channels</div><div style="width:34px"></div></div>
+  <div class="scroll" style="padding:0 18px">
+    <div style="font-size:12px;color:#64748B;margin-bottom:18px;line-height:1.5">Select all the ways customers pay you. Veri-phy monitors each channel automatically.</div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;align-items:center;gap:12px;background:#EAFBF8;border:1.5px solid #14B8A6;border-radius:14px;padding:14px">
+        <div style="width:38px;height:38px;border-radius:11px;background:#0B3D3A;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.38 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11"/></svg></div>
+        <div style="flex:1"><div style="font-size:13px;font-weight:700;color:#0B3D3A">Bank SMS Alerts</div><div style="font-size:11px;color:#64748B;margin-top:2px">GTBank, Access, UBA, Zenith...</div></div>
+        <div style="width:40px;height:22px;background:#14B8A6;border-radius:11px;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;right:2px;width:18px;height:18px;background:white;border-radius:9px;box-shadow:0 1px 3px rgba(0,0,0,0.2)"></div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#EAFBF8;border:1.5px solid #14B8A6;border-radius:14px;padding:14px">
+        <div style="width:38px;height:38px;border-radius:11px;background:#25D366;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <div style="flex:1"><div style="font-size:13px;font-weight:700;color:#0B3D3A">WhatsApp Receipts</div><div style="font-size:11px;color:#64748B;margin-top:2px">Screenshot payment proofs</div></div>
+        <div style="width:40px;height:22px;background:#14B8A6;border-radius:11px;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;right:2px;width:18px;height:18px;background:white;border-radius:9px;box-shadow:0 1px 3px rgba(0,0,0,0.2)"></div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#F7F9FB;border:1.5px solid #E2E8F0;border-radius:14px;padding:14px">
+        <div style="width:38px;height:38px;border-radius:11px;background:#E53935;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+        <div style="flex:1"><div style="font-size:13px;font-weight:700;color:#0F172A">USSD Transfers</div><div style="font-size:11px;color:#64748B;margin-top:2px">*737#, *901#, *919#</div></div>
+        <div style="width:40px;height:22px;background:#E2E8F0;border-radius:11px;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;left:2px;width:18px;height:18px;background:white;border-radius:9px;box-shadow:0 1px 3px rgba(0,0,0,0.2)"></div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#F7F9FB;border:1.5px solid #E2E8F0;border-radius:14px;padding:14px">
+        <div style="width:38px;height:38px;border-radius:11px;background:#6366F1;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+        <div style="flex:1"><div style="font-size:13px;font-weight:700;color:#0F172A">POS Terminal</div><div style="font-size:11px;color:#64748B;margin-top:2px">Card-present transactions</div></div>
+        <div style="width:40px;height:22px;background:#E2E8F0;border-radius:11px;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;left:2px;width:18px;height:18px;background:white;border-radius:9px;box-shadow:0 1px 3px rgba(0,0,0,0.2)"></div></div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:14px 18px 28px;flex-shrink:0;border-top:1px solid #E2E8F0"><button class="btn-full btn-pr">Continue</button></div>
+</div>
+
+<!-- S06 BANK ACCOUNT -->
+<div class="scr" id="s5" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div class="topbar"><div class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></div><div class="pg-title">Connect Bank</div><div style="width:34px"></div></div>
+  <div class="scroll" style="padding:0 18px">
+    <div style="font-size:12px;color:#64748B;margin-bottom:16px">Connect your business account to verify against real bank ledgers in realtime.</div>
+    <div style="background:#EAFBF8;border:1px solid rgba(20,184,166,0.25);border-radius:14px;padding:12px 14px;display:flex;gap:10px;margin-bottom:18px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:1px"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><div style="font-size:11px;color:#0B3D3A;line-height:1.5;font-weight:500">Read-only access. We cannot move or touch your money.</div></div>
+    <div style="font-size:10.5px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px">Select your bank</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px">
+      <div style="background:#EAFBF8;border:1.5px solid #14B8A6;border-radius:12px;padding:10px 8px;text-align:center;cursor:pointer"><div style="width:32px;height:32px;background:#E74C3C;border-radius:9px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:white">GT</div><div style="font-size:10px;font-weight:700;color:#0B3D3A">GTBank</div></div>
+      <div style="background:#F7F9FB;border:1.5px solid #E2E8F0;border-radius:12px;padding:10px 8px;text-align:center;cursor:pointer"><div style="width:32px;height:32px;background:#D4380D;border-radius:9px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:white">AB</div><div style="font-size:10px;font-weight:700;color:#0F172A">Access</div></div>
+      <div style="background:#F7F9FB;border:1.5px solid #E2E8F0;border-radius:12px;padding:10px 8px;text-align:center;cursor:pointer"><div style="width:32px;height:32px;background:#C0392B;border-radius:9px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:white">UB</div><div style="font-size:10px;font-weight:700;color:#0F172A">UBA</div></div>
+      <div style="background:#F7F9FB;border:1.5px solid #E2E8F0;border-radius:12px;padding:10px 8px;text-align:center;cursor:pointer"><div style="width:32px;height:32px;background:#1B4F72;border-radius:9px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:white">ZN</div><div style="font-size:10px;font-weight:700;color:#0F172A">Zenith</div></div>
+      <div style="background:#F7F9FB;border:1.5px solid #E2E8F0;border-radius:12px;padding:10px 8px;text-align:center;cursor:pointer"><div style="width:32px;height:32px;background:#117A65;border-radius:9px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:white">FC</div><div style="font-size:10px;font-weight:700;color:#0F172A">FCMB</div></div>
+      <div style="background:#F7F9FB;border:1.5px solid #E2E8F0;border-radius:12px;padding:10px 8px;text-align:center;cursor:pointer"><div style="width:32px;height:32px;background:#6C3483;border-radius:9px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:white">+</div><div style="font-size:10px;font-weight:700;color:#0F172A">More</div></div>
+    </div>
+    <div style="font-size:10.5px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px">GTBank &mdash; Enter BVN</div>
+    <div style="background:#F7F9FB;border:1.5px solid #E2E8F0;border-radius:12px;padding:13px 14px;font-size:22px;font-weight:700;color:#0F172A;letter-spacing:4px;font-family:monospace">2234&bull;&bull;&bull;&bull;&bull;1</div>
+    <div style="font-size:10px;color:#94A3B8;margin-top:6px">Your BVN is used for identity verification only</div>
+  </div>
+  <div style="padding:14px 18px 28px;flex-shrink:0;border-top:1px solid #E2E8F0"><button class="btn-full btn-pr">Verify &amp; Connect</button></div>
+</div>
+
+<!-- S07 VIRTUAL ACCOUNT -->
+<div class="scr" id="s6" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div class="topbar"><div class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></div><div class="pg-title">Your Verify Account</div><div style="width:34px"></div></div>
+  <div class="scroll" style="padding:0 18px">
+    <div style="background:linear-gradient(135deg,#0B3D3A,#0F5C57);border-radius:20px;padding:20px;margin-bottom:18px">
+      <div style="font-size:10px;color:rgba(255,255,255,0.5);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Veri-phy Virtual Account</div>
+      <div style="font-size:26px;font-weight:900;color:white;letter-spacing:3px;font-family:monospace;margin-bottom:4px">0123 456 789</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6)">Providus Bank &middot; ABDULLAHI MUSA</div>
+      <div style="display:flex;gap:10px;margin-top:16px">
+        <div style="background:rgba(255,255,255,0.1);border-radius:9px;padding:8px 14px;font-size:11px;color:white;font-weight:600;cursor:pointer">Copy Account</div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:9px;padding:8px 14px;font-size:11px;color:white;font-weight:600;cursor:pointer">Share</div>
+      </div>
+    </div>
+    <div style="background:#EAFBF8;border:1px solid rgba(20,184,166,0.2);border-radius:14px;padding:14px;margin-bottom:16px">
+      <div style="font-size:12px;font-weight:700;color:#0B3D3A;margin-bottom:8px">How it works</div>
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:18px;height:18px;background:#14B8A6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:white;flex-shrink:0;margin-top:1px">1</div><div style="font-size:11.5px;color:#0B3D3A;line-height:1.45">Customer sends money to this account number</div></div>
+        <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:18px;height:18px;background:#14B8A6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:white;flex-shrink:0;margin-top:1px">2</div><div style="font-size:11.5px;color:#0B3D3A;line-height:1.45">Veri-phy instantly confirms the credit</div></div>
+        <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:18px;height:18px;background:#14B8A6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:white;flex-shrink:0;margin-top:1px">3</div><div style="font-size:11.5px;color:#0B3D3A;line-height:1.45">You see VERIFIED &mdash; zero guesswork</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:14px 18px 28px;flex-shrink:0;border-top:1px solid #E2E8F0"><button class="btn-full btn-pr">This is ready &mdash; Continue</button></div>
+</div>
+
+<!-- S08 SMS PERMISSION -->
+<div class="scr" id="s7" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 24px;gap:14px">
+    <div style="width:76px;height:76px;border-radius:24px;background:#EAFBF8;border:1.5px solid rgba(20,184,166,0.3);display:flex;align-items:center;justify-content:center;margin-bottom:4px">
+      <svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="6" fill="#0B3D3A" opacity="0.08" stroke="#0B3D3A" stroke-width="1.8"/><path d="M4 14l20 12 20-12" stroke="#14B8A6" stroke-width="1.8" stroke-linecap="round"/><circle cx="38" cy="34" r="8" fill="#22C55E"/><path d="M34.5 34l2.5 2.5 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div style="font-size:22px;font-weight:800;color:#0F172A;text-align:center;letter-spacing:-0.5px;line-height:1.2;max-width:200px">Enable payment alert protection</div>
+    <div style="font-size:12.5px;color:#64748B;text-align:center;line-height:1.65;max-width:230px">Veri-phy reads only payment SMS alerts from your bank. Your personal messages are never touched.</div>
+    <div style="width:100%;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;align-items:flex-start;gap:10px;background:#F7F9FB;border-radius:12px;padding:11px 13px"><div style="width:22px;height:22px;border-radius:7px;background:#EAFBF8;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round"><polyline points="2 8 6 12 14 4"/></svg></div><div style="font-size:11.5px;color:#64748B;line-height:1.45">Only bank payment alerts are read &mdash; GTBank, Access, UBA, Zenith, Opay...</div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;background:#F7F9FB;border-radius:12px;padding:11px 13px"><div style="width:22px;height:22px;border-radius:7px;background:#EAFBF8;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round"><polyline points="2 8 6 12 14 4"/></svg></div><div style="font-size:11.5px;color:#64748B;line-height:1.45">Personal messages and WhatsApp are completely ignored</div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;background:#F7F9FB;border-radius:12px;padding:11px 13px"><div style="width:22px;height:22px;border-radius:7px;background:#EAFBF8;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round"><polyline points="2 8 6 12 14 4"/></svg></div><div style="font-size:11.5px;color:#64748B;line-height:1.45">Revoke anytime from Settings</div></div>
+    </div>
+  </div>
+  <div style="padding:14px 18px 28px;flex-shrink:0;border-top:1px solid #E2E8F0;display:flex;flex-direction:column;gap:10px">
+    <button class="btn-full btn-pr">Enable Alert Protection</button>
+    <div style="font-size:11.5px;color:#94A3B8;text-align:center">Android permission dialog will appear</div>
+  </div>
+</div>
+
+<!-- S09 NOTIFICATION -->
+<div class="scr" id="s8" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 24px;gap:14px">
+    <div style="width:76px;height:76px;border-radius:24px;background:#EAFBF8;border:1.5px solid rgba(20,184,166,0.3);display:flex;align-items:center;justify-content:center;margin-bottom:4px">
+      <svg width="36" height="36" viewBox="0 0 48 48" fill="none"><path d="M24 6a14 14 0 0 1 14 14v8l4 5H6l4-5V20A14 14 0 0 1 24 6z" fill="#0B3D3A" opacity="0.08" stroke="#0B3D3A" stroke-width="1.8" stroke-linejoin="round"/><path d="M21 38a3 3 0 0 0 6 0" stroke="#0B3D3A" stroke-width="1.8" stroke-linecap="round"/><circle cx="36" cy="14" r="7" fill="#22C55E"/><path d="M32.5 14l2.5 2.5 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div style="font-size:22px;font-weight:800;color:#0F172A;text-align:center;letter-spacing:-0.5px;line-height:1.2;max-width:220px">Stay notified when it matters</div>
+    <div style="font-size:12.5px;color:#64748B;text-align:center;line-height:1.65;max-width:230px">Veri-phy shows fraud warnings the moment a suspicious alert is detected. No spam. Only critical alerts.</div>
+    <div style="width:100%;background:#F7F9FB;border-radius:14px;padding:12px 14px;border:1px solid #E2E8F0">
+      <div style="font-size:10.5px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px">You will receive</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;justify-content:space-between"><span style="font-size:12px;color:#0F172A">Fraud warnings</span><span style="font-size:11px;font-weight:700;color:#22C55E">Always</span></div>
+        <div style="display:flex;justify-content:space-between"><span style="font-size:12px;color:#0F172A">Verification results</span><span style="font-size:11px;font-weight:700;color:#22C55E">Yes</span></div>
+        <div style="display:flex;justify-content:space-between"><span style="font-size:12px;color:#0F172A">Promotional messages</span><span style="font-size:11px;font-weight:700;color:#EF4444">Never</span></div>
+        <div style="display:flex;justify-content:space-between"><span style="font-size:12px;color:#0F172A">Daily digests</span><span style="font-size:11px;font-weight:700;color:#F59E0B">Optional</span></div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:14px 18px 28px;flex-shrink:0;border-top:1px solid #E2E8F0;display:flex;flex-direction:column;gap:10px">
+    <button class="btn-full btn-pr">Allow Notifications</button>
+    <div style="font-size:11.5px;color:#94A3B8;text-align:center">Manage anytime in Settings</div>
+  </div>
+</div>
+
+<!-- S10 OVERLAY PERMISSION -->
+<div class="scr" id="s9" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 24px;gap:14px">
+    <div style="width:76px;height:76px;border-radius:24px;background:#EAFBF8;border:1.5px solid rgba(20,184,166,0.3);display:flex;align-items:center;justify-content:center;margin-bottom:4px">
+      <svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="5" fill="#0B3D3A" opacity="0.06" stroke="#0B3D3A" stroke-width="1.8"/><rect x="8" y="28" width="32" height="10" rx="4" fill="#14B8A6" opacity="0.25" stroke="#14B8A6" stroke-width="1.5"/><path d="M14 33h2m4 0h12" stroke="#0B3D3A" stroke-width="1.5" stroke-linecap="round"/><circle cx="38" cy="14" r="7" fill="#22C55E"/><path d="M34.5 14l2.5 2.5 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div style="font-size:22px;font-weight:800;color:#0F172A;text-align:center;letter-spacing:-0.5px;line-height:1.2;max-width:210px">Allow fraud warnings to appear instantly</div>
+    <div style="font-size:12.5px;color:#64748B;text-align:center;line-height:1.65;max-width:230px">This lets Veri-phy show the verdict card over any open app &mdash; so you see it the moment a payment arrives.</div>
+    <div style="width:100%;background:#FFF7ED;border:1px solid rgba(245,158,11,0.2);border-radius:14px;padding:12px 14px;display:flex;gap:10px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:1px"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <div style="font-size:11.5px;color:#92400E;line-height:1.5">Most important permission. Without it, fraud warnings cannot appear over your chat screens.</div>
+    </div>
+  </div>
+  <div style="padding:14px 18px 28px;flex-shrink:0;border-top:1px solid #E2E8F0;display:flex;flex-direction:column;gap:10px">
+    <button class="btn-full btn-pr">Enable Fraud Warnings</button>
+    <div style="font-size:11.5px;color:#94A3B8;text-align:center">Android will ask you to confirm</div>
+  </div>
+</div>
+
+<!-- S11 BATTERY -->
+<div class="scr" id="s10" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 24px;gap:14px">
+    <div style="width:76px;height:76px;border-radius:24px;background:#EAFBF8;border:1.5px solid rgba(20,184,166,0.3);display:flex;align-items:center;justify-content:center;margin-bottom:4px">
+      <svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect x="6" y="12" width="34" height="24" rx="4" fill="#0B3D3A" opacity="0.08" stroke="#0B3D3A" stroke-width="1.8"/><rect x="40" y="18" width="4" height="12" rx="2" fill="#0B3D3A" opacity="0.4"/><rect x="10" y="16" width="22" height="16" rx="2" fill="#22C55E" opacity="0.4"/><path d="M22 22l-4 4h6l-4 4" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div style="font-size:22px;font-weight:800;color:#0F172A;text-align:center;letter-spacing:-0.5px;line-height:1.2;max-width:220px">Keep protection running in the background</div>
+    <div style="font-size:12.5px;color:#64748B;text-align:center;line-height:1.65;max-width:230px">Android&apos;s battery saver can stop Veri-phy mid-transaction. This setting keeps it always-on so you&apos;re never unprotected.</div>
+    <div style="width:100%;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;align-items:flex-start;gap:10px;background:#F7F9FB;border-radius:12px;padding:11px 13px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg><div style="font-size:11.5px;color:#64748B;line-height:1.45">Veri-phy uses less than 1% battery per day</div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;background:#F7F9FB;border-radius:12px;padding:11px 13px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg><div style="font-size:11.5px;color:#64748B;line-height:1.45">Only wakes when a payment SMS arrives</div></div>
+    </div>
+  </div>
+  <div style="padding:14px 18px 28px;flex-shrink:0;border-top:1px solid #E2E8F0;display:flex;flex-direction:column;gap:10px">
+    <button class="btn-full btn-pr">Keep Protection Always On</button>
+    <div style="font-size:11.5px;color:#94A3B8;text-align:center">Skip &mdash; protection may pause occasionally</div>
+  </div>
+</div>
+
+<!-- S12 ACTIVATED -->
+<div class="scr" id="s11" style="background:linear-gradient(160deg,#071f1e,#0B3D3A,#0F5C57)">
+  <div class="sbd"><span>9:41</span></div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;gap:16px">
+    <div style="position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center;margin-bottom:8px">
+      <div style="position:absolute;inset:0;border-radius:50%;border:2px solid rgba(20,184,166,0.2);animation:pulse 2.5s ease-in-out infinite"></div>
+      <div style="position:absolute;inset:12px;border-radius:50%;border:2px solid rgba(20,184,166,0.3);animation:pulse 2.5s ease-in-out infinite 0.6s"></div>
+      <div style="width:82px;height:82px;background:linear-gradient(135deg,#14B8A6,#0F5C57);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px rgba(20,184,166,0.5)">
+        <svg width="36" height="36" viewBox="0 0 48 48" fill="none"><path d="M24 6L8 13v11c0 9.08 6.88 17.58 16 20 9.12-2.42 16-10.92 16-20V13L24 6z" fill="white" opacity="0.2"/><path d="M16 24l5 5 11-11" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <div style="font-size:26px;font-weight:900;color:white;text-align:center;letter-spacing:-0.8px">You&apos;re protected.</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.55);text-align:center;line-height:1.6;max-width:230px">Veri-phy is now running silently. Every payment alert will be verified before it reaches you.</div>
+    <div style="display:flex;gap:12px;width:100%">
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:14px;text-align:center;flex:1"><div style="font-size:20px;font-weight:800;color:white">0.8s</div><div style="font-size:9.5px;color:rgba(255,255,255,0.4);margin-top:3px">Avg verdict</div></div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:14px;text-align:center;flex:1"><div style="font-size:20px;font-weight:800;color:#22C55E">Active</div><div style="font-size:9.5px;color:rgba(255,255,255,0.4);margin-top:3px">Status</div></div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:14px;text-align:center;flex:1"><div style="font-size:20px;font-weight:800;color:white">24/7</div><div style="font-size:9.5px;color:rgba(255,255,255,0.4);margin-top:3px">Protection</div></div>
+    </div>
+  </div>
+  <div style="padding:18px 20px 32px;flex-shrink:0"><button class="btn-full" style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2);color:white;border-radius:13px;font-size:14px;font-weight:700;padding:14px">Go to Dashboard</button></div>
+</div>
+
+<!-- S13 HOME -->
+<div class="scr" id="s12">
+  <div style="background:linear-gradient(160deg,#071f1e,#0B3D3A);flex-shrink:0">
+    <div class="sbd" style="background:transparent"><span>9:41</span><div class="sb-ic"><svg width="11" height="10" viewBox="0 0 24 20" fill="white"><path d="M1 1h4v18H1V1zm6 3h4v15H7V4zm6 5h4v10h-4V9zm6-6h4v20h-4V3z"/></svg></div></div>
+    <div style="padding:10px 18px 22px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px">
+        <div><div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:3px">Good morning,</div><div style="font-size:19px;font-weight:800;color:white;letter-spacing:-0.4px">Abdullahi &#128075;</div></div>
+        <div style="position:relative;width:38px;height:38px;background:rgba(255,255,255,0.1);border-radius:11px;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><div style="position:absolute;top:6px;right:6px;width:8px;height:8px;background:#EF4444;border-radius:50%;border:1.5px solid #0B3D3A"></div></div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:14px;display:flex;align-items:center;gap:12px">
+        <div style="width:11px;height:11px;background:#22C55E;border-radius:50%;box-shadow:0 0 0 4px rgba(34,197,94,0.25);animation:pulse 2s infinite;flex-shrink:0"></div>
+        <div style="flex:1"><div style="font-size:13px;font-weight:700;color:white">Protection Active</div><div style="font-size:10.5px;color:rgba(255,255,255,0.5);margin-top:2px">Monitoring all SMS alerts &middot; 0.8s avg</div></div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </div>
+  </div>
+  <div class="scroll" style="background:#F7F9FB;padding:14px 16px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
+      <div style="background:white;border-radius:14px;padding:14px;border:1px solid #E2E8F0">
+        <div style="width:34px;height:34px;border-radius:10px;background:#DCFCE7;display:flex;align-items:center;justify-content:center;margin-bottom:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div style="font-size:22px;font-weight:800;color:#0F172A;letter-spacing:-0.5px">47</div><div style="font-size:10px;color:#94A3B8;margin-top:2px">Verified today</div>
+      </div>
+      <div style="background:white;border-radius:14px;padding:14px;border:1px solid #E2E8F0">
+        <div style="width:34px;height:34px;border-radius:10px;background:#FEE2E2;display:flex;align-items:center;justify-content:center;margin-bottom:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+        <div style="font-size:22px;font-weight:800;color:#0F172A;letter-spacing:-0.5px">3</div><div style="font-size:10px;color:#94A3B8;margin-top:2px">Frauds blocked</div>
+      </div>
+    </div>
+    <div style="font-size:10.5px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px">Recent Activity</div>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div style="background:white;border-radius:12px;padding:11px 12px;border:1px solid #E2E8F0;display:flex;align-items:center;gap:9px"><div style="width:36px;height:36px;border-radius:11px;background:#DCFCE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:800;color:#16A34A">&#10003;</div><div style="flex:1"><div style="font-size:12px;font-weight:700;color:#0F172A">GTBank Transfer</div><div style="font-size:10px;color:#94A3B8;margin-top:2px">2 mins ago &middot; IBRAHIM A.</div></div><div><div style="font-size:13px;font-weight:800;color:#0F172A">&#8358;25,000</div><div style="background:#DCFCE7;color:#16A34A;padding:2px 7px;border-radius:20px;font-size:9px;font-weight:700;margin-top:3px;text-align:center">VERIFIED</div></div></div>
+      <div style="background:white;border-radius:12px;padding:11px 12px;border:1px solid #E2E8F0;display:flex;align-items:center;gap:9px"><div style="width:36px;height:36px;border-radius:11px;background:#FEF3C7;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:800;color:#D97706">&#8987;</div><div style="flex:1"><div style="font-size:12px;font-weight:700;color:#0F172A">Access Bank</div><div style="font-size:10px;color:#94A3B8;margin-top:2px">8 mins ago &middot; KEMI A.</div></div><div><div style="font-size:13px;font-weight:800;color:#0F172A">&#8358;80,000</div><div style="background:#FEF3C7;color:#D97706;padding:2px 7px;border-radius:20px;font-size:9px;font-weight:700;margin-top:3px;text-align:center">PENDING</div></div></div>
+      <div style="background:white;border-radius:12px;padding:11px 12px;border:1px solid #E2E8F0;display:flex;align-items:center;gap:9px"><div style="width:36px;height:36px;border-radius:11px;background:#FEE2E2;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:800;color:#DC2626">&#10005;</div><div style="flex:1"><div style="font-size:12px;font-weight:700;color:#0F172A">UBA Alert</div><div style="font-size:10px;color:#94A3B8;margin-top:2px">1 hr ago &middot; Blocked</div></div><div><div style="font-size:13px;font-weight:800;color:#0F172A">&#8358;150K</div><div style="background:#FEE2E2;color:#DC2626;padding:2px 7px;border-radius:20px;font-size:9px;font-weight:700;margin-top:3px;text-align:center">FAKE</div></div></div>
+    </div>
+  </div>
+  <div class="bnav">
+    <div class="bni act"><div class="bni-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B3D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="bni-lbl" style="color:#0B3D3A">Home</div></div>
+    <div class="bni"><div class="bni-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="bni-lbl">Activity</div></div>
+    <div class="bni"><div class="bni-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="bni-lbl">Shield</div></div>
+    <div class="bni"><div class="bni-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/></svg></div><div class="bni-lbl">Profile</div></div>
+  </div>
+</div>
+
+<!-- S14 PROTECTION STATUS -->
+<div class="scr" id="s13">
+  <div style="background:#0B3D3A;flex-shrink:0">
+    <div class="sbd" style="background:transparent"><span>9:41</span></div>
+    <div class="topbar" style="padding-bottom:0"><div class="back" style="background:rgba(255,255,255,0.1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></div><div class="pg-title" style="color:white">Protection Status</div><div style="width:34px"></div></div>
+    <div style="padding:16px 18px 24px;text-align:center">
+      <div style="position:relative;width:72px;height:72px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center">
+        <div style="position:absolute;inset:0;border-radius:50%;border:2px solid rgba(34,197,94,0.3);animation:pulse 2s infinite"></div>
+        <div style="width:52px;height:52px;background:rgba(34,197,94,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid rgba(34,197,94,0.4)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+      </div>
+      <div style="font-size:15px;font-weight:800;color:white">Fully Protected</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px">All systems operational &middot; Since 7:23 AM</div>
+    </div>
+  </div>
+  <div class="scroll" style="background:#F7F9FB;padding:14px 16px">
+    <div style="background:white;border-radius:16px;border:1px solid #E2E8F0;overflow:hidden;margin-bottom:12px">
+      <div style="padding:12px 14px;border-bottom:1px solid #E2E8F0;font-size:10.5px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px">Permission Checklist</div>
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #E2E8F0"><div style="width:28px;height:28px;border-radius:8px;background:#DCFCE7;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round"><polyline points="2 8 6 12 14 4"/></svg></div><div style="flex:1"><div style="font-size:12px;font-weight:700;color:#0F172A">SMS Access</div><div style="font-size:10px;color:#94A3B8;margin-top:1px">Reading payment alerts</div></div><span style="font-size:11px;font-weight:700;color:#16A34A">Active</span></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #E2E8F0"><div style="width:28px;height:28px;border-radius:8px;background:#DCFCE7;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round"><polyline points="2 8 6 12 14 4"/></svg></div><div style="flex:1"><div style="font-size:12px;font-weight:700;color:#0F172A">Overlay (Draw Over Apps)</div><div style="font-size:10px;color:#94A3B8;margin-top:1px">Showing fraud warnings</div></div><span style="font-size:11px;font-weight:700;color:#16A34A">Active</span></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #E2E8F0"><div style="width:28px;height:28px;border-radius:8px;background:#DCFCE7;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round"><polyline points="2 8 6 12 14 4"/></svg></div><div style="flex:1"><div style="font-size:12px;font-weight:700;color:#0F172A">Notifications</div><div style="font-size:10px;color:#94A3B8;margin-top:1px">Real-time alerts</div></div><span style="font-size:11px;font-weight:700;color:#16A34A">Active</span></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 14px"><div style="width:28px;height:28px;border-radius:8px;background:#DCFCE7;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round"><polyline points="2 8 6 12 14 4"/></svg></div><div style="flex:1"><div style="font-size:12px;font-weight:700;color:#0F172A">Background Run</div><div style="font-size:10px;color:#94A3B8;margin-top:1px">Battery optimization off</div></div><span style="font-size:11px;font-weight:700;color:#16A34A">Active</span></div>
+    </div>
+    <div style="background:white;border-radius:16px;border:1px solid #E2E8F0;padding:14px 16px">
+      <div style="font-size:10.5px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:12px">Today&apos;s Stats</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+        <div style="text-align:center;background:#F7F9FB;border-radius:10px;padding:10px 6px"><div style="font-size:18px;font-weight:800;color:#0F172A">47</div><div style="font-size:9px;color:#94A3B8;margin-top:2px">Checked</div></div>
+        <div style="text-align:center;background:#F7F9FB;border-radius:10px;padding:10px 6px"><div style="font-size:18px;font-weight:800;color:#16A34A">44</div><div style="font-size:9px;color:#94A3B8;margin-top:2px">Verified</div></div>
+        <div style="text-align:center;background:#F7F9FB;border-radius:10px;padding:10px 6px"><div style="font-size:18px;font-weight:800;color:#DC2626">3</div><div style="font-size:9px;color:#94A3B8;margin-top:2px">Blocked</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S15 OVERLAY INTERACTIONS -->
+<div class="scr" id="s14" style="background:#ECE5DD;position:relative">
+  <div style="background:#075E54;padding:30px 14px 10px;display:flex;align-items:center;gap:9px;flex-shrink:0">
+    <div style="width:32px;height:32px;border-radius:50%;background:#128C7E;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:white">GT</div>
+    <div><div style="font-size:12px;font-weight:700;color:white">GTBank Alerts</div><div style="font-size:9.5px;color:rgba(255,255,255,0.6)">SMS</div></div>
+  </div>
+  <div style="padding:10px;flex:1">
+    <div style="background:white;border-radius:2px 10px 10px 10px;padding:10px 12px;max-width:220px;box-shadow:0 1px 3px rgba(0,0,0,0.1)">
+      <div style="font-size:9px;font-weight:800;color:#075E54;margin-bottom:4px">GTBank Nigeria</div>
+      <div style="font-size:18px;font-weight:900;color:#0B3D3A;margin:4px 0;letter-spacing:-0.5px">&#8358;25,000.00</div>
+      <div style="font-size:10.5px;color:#333">received. From: IBRAHIM A. Ref: TXN****8301</div>
+      <div style="font-size:8.5px;color:#94A3B8;text-align:right;margin-top:5px">9:41 AM &#10003;&#10003;</div>
+    </div>
+    <div style="margin-top:10px;background:rgba(20,184,166,0.12);border:1px solid rgba(20,184,166,0.25);border-radius:10px;padding:8px 12px;max-width:220px">
+      <div style="font-size:9px;font-weight:700;color:#0B3D3A">Veri-phy is verifying this alert&hellip;</div>
+      <div style="display:flex;gap:4px;margin-top:6px">
+        <div style="width:5px;height:5px;border-radius:50%;background:#14B8A6;animation:dot 1s infinite"></div>
+        <div style="width:5px;height:5px;border-radius:50%;background:#14B8A6;animation:dot 1s 0.2s infinite"></div>
+        <div style="width:5px;height:5px;border-radius:50%;background:#14B8A6;animation:dot 1s 0.4s infinite"></div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;background:white;border-radius:18px 18px 0 0;padding:13px 14px 20px;box-shadow:0 -6px 24px rgba(0,0,0,0.15)">
+    <div style="width:30px;height:4px;background:#E2E8F0;border-radius:2px;margin:0 auto 12px"></div>
+    <div style="font-size:10px;color:#94A3B8;text-align:center;margin-bottom:8px">Swipe up to review full verdict</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#EAFBF8;border:1.5px solid #14B8A6;border-radius:12px;padding:10px 12px">
+      <div style="display:flex;align-items:center;gap:8px"><div style="width:28px;height:28px;background:#22C55E;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2 8 6 12 14 4"/></svg></div><div><div style="font-size:13px;font-weight:800;color:#0B3D3A">VERIFIED</div><div style="font-size:10px;color:#64748B">&#8358;25,000 &middot; GTBank</div></div></div>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </div>
+  </div>
+</div>
+
+<!-- S16 VERIFIED OVERLAY -->
+<div class="scr" id="s15" style="background:#ECE5DD;position:relative">
+  <div style="background:#075E54;padding:30px 14px 10px;display:flex;align-items:center;gap:9px;flex-shrink:0">
+    <div style="width:32px;height:32px;border-radius:50%;background:#128C7E;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:white">GT</div>
+    <div><div style="font-size:12px;font-weight:700;color:white">GTBank Alerts</div><div style="font-size:9.5px;color:rgba(255,255,255,0.6)">SMS &middot; Just now</div></div>
+  </div>
+  <div style="padding:10px;flex:1"><div style="background:white;border-radius:2px 10px 10px 10px;padding:10px 12px;max-width:220px;box-shadow:0 1px 3px rgba(0,0,0,0.1)"><div style="font-size:9px;font-weight:800;color:#075E54;margin-bottom:4px">GTBank Nigeria</div><div style="font-size:18px;font-weight:900;color:#0B3D3A;margin:4px 0">&#8358;25,000.00</div><div style="font-size:10.5px;color:#333">received. From: IBRAHIM A.</div><div style="font-size:8.5px;color:#94A3B8;text-align:right;margin-top:5px">9:41 AM &#10003;&#10003;</div></div></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;background:white;border-radius:20px 20px 0 0;padding:13px 16px 24px;box-shadow:0 -8px 32px rgba(0,0,0,0.18)">
+    <div style="width:30px;height:4px;background:#E2E8F0;border-radius:2px;margin:0 auto 14px"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:20px;height:20px;background:#0B3D3A;border-radius:6px;display:flex;align-items:center;justify-content:center"><svg width="10" height="10" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 5.5V10c0 3.87 2.95 7.49 7 8.5 4.05-1.01 7-4.63 7-8.5V5.5L10 2z" fill="white"/></svg></div><span style="font-size:11px;font-weight:800;color:#0B3D3A;letter-spacing:0.5px">VERI-PHY</span></div>
+      <div style="display:flex;align-items:center;gap:4px;background:#F7F9FB;padding:4px 8px;border-radius:20px"><div style="width:5px;height:5px;border-radius:50%;background:#22C55E;animation:dot 1.5s infinite"></div><span style="font-size:9.5px;font-weight:600;color:#64748B">0.6s</span></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#EAFBF8,#d1fdf7);border:1.5px solid #14B8A6;border-radius:14px;padding:12px 14px;margin-bottom:12px">
+      <div style="width:32px;height:32px;background:#22C55E;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 10px rgba(34,197,94,0.3)"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2 8 6 12 14 4"/></svg></div>
+      <div><div style="font-size:16px;font-weight:900;color:#0B3D3A">VERIFIED</div><div style="font-size:10.5px;color:#64748B;margin-top:1px">Confirmed in bank ledger</div></div>
+    </div>
+    <div style="background:#F7F9FB;border-radius:12px;padding:12px 14px;margin-bottom:12px;display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#64748B"><span>Amount</span><span style="font-weight:700;color:#0F172A">&#8358;25,000.00</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#64748B"><span>Bank</span><span style="font-weight:700;color:#0F172A">GTBank Nigeria</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#64748B"><span>Sender</span><span style="font-weight:700;color:#0F172A">IBRAHIM ABDULLAHI</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#64748B"><span>Settled</span><span style="font-weight:700;color:#22C55E">0.6 seconds ago</span></div>
+    </div>
+    <button style="width:100%;padding:13px;border-radius:12px;background:#22C55E;color:white;font-size:13px;font-weight:800;border:none;box-shadow:0 4px 14px rgba(34,197,94,0.3)">&#10003; Safe to Release Goods</button>
+    <div style="font-size:11px;color:#94A3B8;text-align:center;margin-top:8px">Tap to dismiss &middot; View full report</div>
+  </div>
+</div>
+
+<!-- S17 PENDING OVERLAY -->
+<div class="scr" id="s16" style="background:#ECE5DD;position:relative">
+  <div style="background:#075E54;padding:30px 14px 10px;display:flex;align-items:center;gap:9px;flex-shrink:0">
+    <div style="width:32px;height:32px;border-radius:50%;background:#128C7E;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:white">AB</div>
+    <div><div style="font-size:12px;font-weight:700;color:white">Access Bank Alerts</div><div style="font-size:9.5px;color:rgba(255,255,255,0.6)">SMS</div></div>
+  </div>
+  <div style="padding:10px;flex:1"><div style="background:white;border-radius:2px 10px 10px 10px;padding:10px 12px;max-width:220px;box-shadow:0 1px 3px rgba(0,0,0,0.1)"><div style="font-size:9px;font-weight:800;color:#075E54;margin-bottom:4px">Access Bank</div><div style="font-size:18px;font-weight:900;color:#0B3D3A;margin:4px 0">&#8358;80,000.00</div><div style="font-size:10.5px;color:#333">Transfer. From: KEMI ADEOLA.</div><div style="font-size:8.5px;color:#94A3B8;text-align:right;margin-top:5px">9:41 AM &#10003;&#10003;</div></div></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;background:white;border-radius:20px 20px 0 0;padding:13px 16px 24px;box-shadow:0 -8px 32px rgba(0,0,0,0.18)">
+    <div style="width:30px;height:4px;background:#E2E8F0;border-radius:2px;margin:0 auto 14px"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:20px;height:20px;background:#0B3D3A;border-radius:6px;display:flex;align-items:center;justify-content:center"><svg width="10" height="10" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 5.5V10c0 3.87 2.95 7.49 7 8.5 4.05-1.01 7-4.63 7-8.5V5.5L10 2z" fill="white"/></svg></div><span style="font-size:11px;font-weight:800;color:#0B3D3A;letter-spacing:0.5px">VERI-PHY</span></div>
+      <div style="display:flex;align-items:center;gap:4px;background:#FFF7ED;padding:4px 8px;border-radius:20px"><div style="width:5px;height:5px;border-radius:50%;background:#F59E0B;animation:dot 1.5s infinite"></div><span style="font-size:9.5px;font-weight:600;color:#D97706">Checking&hellip;</span></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;background:#FFFBEB;border:1.5px solid #F59E0B;border-radius:14px;padding:12px 14px;margin-bottom:12px">
+      <div style="width:32px;height:32px;background:#F59E0B;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div><div style="font-size:16px;font-weight:900;color:#92400E">PENDING</div><div style="font-size:10.5px;color:#64748B;margin-top:1px">Awaiting settlement confirmation</div></div>
+    </div>
+    <div style="background:#F7F9FB;border-radius:12px;padding:12px 14px;margin-bottom:12px;display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#64748B"><span>Amount</span><span style="font-weight:700;color:#0F172A">&#8358;80,000.00</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#64748B"><span>Bank</span><span style="font-weight:700;color:#0F172A">Access Bank</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#64748B"><span>Status</span><span style="font-weight:700;color:#D97706">Processing at NIBSS</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#64748B"><span>Est. time</span><span style="font-weight:700;color:#D97706">~2 minutes</span></div>
+    </div>
+    <button style="width:100%;padding:13px;border-radius:12px;background:#F59E0B;color:white;font-size:13px;font-weight:800;border:none;box-shadow:0 4px 14px rgba(245,158,11,0.3)">&#8987; Wait for Confirmation</button>
+    <div style="font-size:11px;color:#94A3B8;text-align:center;margin-top:8px">We&apos;ll notify you when it settles</div>
+  </div>
+</div>
+
+<!-- S18 FAKE OVERLAY -->
+<div class="scr" id="s17" style="background:#ECE5DD;position:relative">
+  <div style="background:#075E54;padding:30px 14px 10px;display:flex;align-items:center;gap:9px;flex-shrink:0">
+    <div style="width:32px;height:32px;border-radius:50%;background:#128C7E;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:white">UB</div>
+    <div><div style="font-size:12px;font-weight:700;color:white">UBA Nigeria</div><div style="font-size:9.5px;color:rgba(255,255,255,0.6)">SMS</div></div>
+  </div>
+  <div style="padding:10px;flex:1"><div style="background:white;border-radius:2px 10px 10px 10px;padding:10px 12px;max-width:220px;box-shadow:0 1px 3px rgba(0,0,0,0.1)"><div style="font-size:9px;font-weight:800;color:#075E54;margin-bottom:4px">UBA Nigeria</div><div style="font-size:18px;font-weight:900;color:#0B3D3A;margin:4px 0">&#8358;150,000.00</div><div style="font-size:10.5px;color:#333">Credit alert. From: EMEKA OBI.</div><div style="font-size:8.5px;color:#94A3B8;text-align:right;margin-top:5px">9:41 AM &#10003;&#10003;</div></div></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;background:white;border-radius:20px 20px 0 0;padding:13px 16px 24px;box-shadow:0 -8px 32px rgba(0,0,0,0.18)">
+    <div style="width:30px;height:4px;background:#E2E8F0;border-radius:2px;margin:0 auto 14px"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:20px;height:20px;background:#0B3D3A;border-radius:6px;display:flex;align-items:center;justify-content:center"><svg width="10" height="10" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 5.5V10c0 3.87 2.95 7.49 7 8.5 4.05-1.01 7-4.63 7-8.5V5.5L10 2z" fill="white"/></svg></div><span style="font-size:11px;font-weight:800;color:#0B3D3A;letter-spacing:0.5px">VERI-PHY</span></div>
+      <div style="background:#FEE2E2;padding:4px 8px;border-radius:20px;font-size:9.5px;font-weight:700;color:#DC2626">&#9888; HIGH RISK</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;background:#FEF2F2;border:1.5px solid #EF4444;border-radius:14px;padding:12px 14px;margin-bottom:12px">
+      <div style="width:32px;height:32px;background:#EF4444;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+      <div><div style="font-size:16px;font-weight:900;color:#7F1D1D">NOT FOUND</div><div style="font-size:10.5px;color:#64748B;margin-top:1px">No matching transaction in ledger</div></div>
+    </div>
+    <div style="background:#FEF2F2;border-radius:12px;padding:12px 14px;margin-bottom:12px;border:1px solid rgba(239,68,68,0.1);display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#64748B"><span>Amount claimed</span><span style="font-weight:700;color:#7F1D1D">&#8358;150,000.00</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#64748B"><span>Ledger match</span><span style="font-weight:700;color:#EF4444">NONE</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#64748B"><span>Risk level</span><span style="font-weight:700;color:#EF4444">CRITICAL</span></div>
+    </div>
+    <button style="width:100%;padding:13px;border-radius:12px;background:#EF4444;color:white;font-size:13px;font-weight:800;border:none;box-shadow:0 4px 14px rgba(239,68,68,0.3)">&#10005; Do Not Release Goods</button>
+    <div style="font-size:11px;color:#94A3B8;text-align:center;margin-top:8px">Report fraud &middot; Why this verdict?</div>
+  </div>
+</div>
+
+<!-- S19 ACTIVITY -->
+<div class="scr" id="s18">
+  <div style="background:#0B3D3A;flex-shrink:0"><div class="sbd" style="background:transparent"><span>9:41</span></div><div style="padding:10px 18px 20px"><div style="font-size:20px;font-weight:800;color:white;letter-spacing:-0.5px">Activity</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px">47 verifications today</div></div></div>
+  <div style="display:flex;gap:7px;padding:12px 14px 8px;background:white;flex-shrink:0;border-bottom:1px solid #E2E8F0">
+    <div style="padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;background:#0B3D3A;color:white">All</div>
+    <div style="padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;background:#DCFCE7;color:#16A34A">Verified</div>
+    <div style="padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;background:#F7F9FB;color:#64748B">Pending</div>
+    <div style="padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;background:#F7F9FB;color:#64748B">Fake</div>
+  </div>
+  <div class="scroll" style="padding:12px 14px;background:white;display:flex;flex-direction:column;gap:8px">
+    <div style="font-size:10px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;padding:0 2px;margin-bottom:2px">Today</div>
+    <div style="border:1px solid #E2E8F0;border-radius:14px;padding:12px;display:flex;gap:9px;align-items:center;cursor:pointer">
+      <div style="width:38px;height:38px;border-radius:12px;background:#DCFCE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:800;color:#16A34A">&#10003;</div>
+      <div style="flex:1"><div style="font-size:12px;font-weight:700;color:#0F172A">GTBank</div><div style="font-size:13px;font-weight:800;color:#0F172A;margin:1px 0">&#8358;25,000</div><div style="font-size:10px;color:#94A3B8">IBRAHIM A. &middot; 9:41 AM</div></div>
+      <div style="background:#DCFCE7;color:#16A34A;padding:4px 9px;border-radius:20px;font-size:10px;font-weight:700">VERIFIED</div>
+    </div>
+    <div style="border:1px solid #E2E8F0;border-radius:14px;padding:12px;display:flex;gap:9px;align-items:center;cursor:pointer">
+      <div style="width:38px;height:38px;border-radius:12px;background:#FEF3C7;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:800;color:#D97706">&#8987;</div>
+      <div style="flex:1"><div style="font-size:12px;font-weight:700;color:#0F172A">Access Bank</div><div style="font-size:13px;font-weight:800;color:#0F172A;margin:1px 0">&#8358;80,000</div><div style="font-size:10px;color:#94A3B8">KEMI A. &middot; 9:33 AM</div></div>
+      <div style="background:#FEF3C7;color:#D97706;padding:4px 9px;border-radius:20px;font-size:10px;font-weight:700">PENDING</div>
+    </div>
+    <div style="border:1px solid #E2E8F0;border-radius:14px;padding:12px;display:flex;gap:9px;align-items:center;cursor:pointer;background:#FFF8F8">
+      <div style="width:38px;height:38px;border-radius:12px;background:#FEE2E2;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:800;color:#DC2626">&#10005;</div>
+      <div style="flex:1"><div style="font-size:12px;font-weight:700;color:#0F172A">UBA Nigeria</div><div style="font-size:13px;font-weight:800;color:#0F172A;margin:1px 0">&#8358;150,000</div><div style="font-size:10px;color:#94A3B8">EMEKA O. &middot; 8:50 AM &middot; Blocked</div></div>
+      <div style="background:#FEE2E2;color:#DC2626;padding:4px 9px;border-radius:20px;font-size:10px;font-weight:700">FAKE</div>
+    </div>
+    <div style="border:1px solid #E2E8F0;border-radius:14px;padding:12px;display:flex;gap:9px;align-items:center;cursor:pointer">
+      <div style="width:38px;height:38px;border-radius:12px;background:#DCFCE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:800;color:#16A34A">&#10003;</div>
+      <div style="flex:1"><div style="font-size:12px;font-weight:700;color:#0F172A">Zenith Bank</div><div style="font-size:13px;font-weight:800;color:#0F172A;margin:1px 0">&#8358;10,500</div><div style="font-size:10px;color:#94A3B8">TAIWO K. &middot; 8:22 AM</div></div>
+      <div style="background:#DCFCE7;color:#16A34A;padding:4px 9px;border-radius:20px;font-size:10px;font-weight:700">VERIFIED</div>
+    </div>
+    <div style="font-size:10px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;padding:6px 2px 2px;margin-top:4px">Yesterday</div>
+    <div style="border:1px solid #E2E8F0;border-radius:14px;padding:12px;display:flex;gap:9px;align-items:center;cursor:pointer">
+      <div style="width:38px;height:38px;border-radius:12px;background:#DCFCE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:800;color:#16A34A">&#10003;</div>
+      <div style="flex:1"><div style="font-size:12px;font-weight:700;color:#0F172A">GTBank</div><div style="font-size:13px;font-weight:800;color:#0F172A;margin:1px 0">&#8358;45,000</div><div style="font-size:10px;color:#94A3B8">HASSAN M. &middot; 3:15 PM</div></div>
+      <div style="background:#DCFCE7;color:#16A34A;padding:4px 9px;border-radius:20px;font-size:10px;font-weight:700">VERIFIED</div>
+    </div>
+  </div>
+  <div class="bnav">
+    <div class="bni"><div class="bni-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div class="bni-lbl">Home</div></div>
+    <div class="bni act"><div class="bni-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B3D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="bni-lbl" style="color:#0B3D3A">Activity</div></div>
+    <div class="bni"><div class="bni-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="bni-lbl">Shield</div></div>
+    <div class="bni"><div class="bni-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/></svg></div><div class="bni-lbl">Profile</div></div>
+  </div>
+</div>
+
+<!-- S20 FRAUD DETAILS -->
+<div class="scr" id="s19">
+  <div style="background:linear-gradient(135deg,#7F1D1D,#DC2626);flex-shrink:0"><div class="sbd" style="background:transparent"><span>9:41</span></div><div class="topbar" style="padding-bottom:0"><div class="back" style="background:rgba(255,255,255,0.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></div><div class="pg-title" style="color:white">Fraud Details</div><div style="width:34px"></div></div>
+    <div style="padding:14px 18px 22px"><div style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.15);padding:4px 12px;border-radius:20px;font-size:10px;font-weight:700;color:white;margin-bottom:10px;letter-spacing:0.5px">&#9888; FRAUD ALERT</div><div style="font-size:20px;font-weight:900;color:white;letter-spacing:-0.4px;margin-bottom:6px;line-height:1.2">Fake Alert Detected</div><div style="font-size:11.5px;color:rgba(255,255,255,0.65);line-height:1.5">This SMS was not matched to any real transaction. Do not release goods to this customer.</div></div>
+  </div>
+  <div class="scroll" style="background:#F7F9FB;padding:14px 16px;display:flex;flex-direction:column;gap:12px">
+    <div style="background:#FEF2F2;border:1px solid rgba(239,68,68,0.15);border-radius:14px;padding:12px 14px;display:flex;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:1px"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg><div style="font-size:12px;color:#7F1D1D;line-height:1.5;font-weight:500">Hold all goods. Ask the customer to transfer directly to your Veri-phy virtual account.</div></div>
+    <div style="background:white;border-radius:16px;border:1px solid #E2E8F0;overflow:hidden">
+      <div style="padding:12px 14px;border-bottom:1px solid #E2E8F0;font-size:10.5px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px">Alert Details</div>
+      <div style="padding:0 14px">
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #E2E8F0;font-size:12px"><span style="color:#64748B">Amount claimed</span><span style="font-weight:700;color:#DC2626">&#8358;150,000</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #E2E8F0;font-size:12px"><span style="color:#64748B">Sender name</span><span style="font-weight:700;color:#0F172A">EMEKA OBI</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #E2E8F0;font-size:12px"><span style="color:#64748B">Bank</span><span style="font-weight:700;color:#0F172A">UBA Nigeria</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0;font-size:12px"><span style="color:#64748B">Ledger check</span><span style="font-weight:700;color:#DC2626">NO MATCH FOUND</span></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px"><button style="flex:1;padding:12px;border-radius:12px;background:white;color:#0F172A;font-size:12px;font-weight:700;border:1px solid #E2E8F0;cursor:pointer">Why This Verdict?</button><button style="flex:1;padding:12px;border-radius:12px;background:#EF4444;color:white;font-size:12px;font-weight:700;border:none;cursor:pointer">Report Fraud</button></div>
+  </div>
+</div>
+
+<!-- S21 WHY VERDICT -->
+<div class="scr" id="s20" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div class="topbar"><div class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></div><div class="pg-title">Why FAKE?</div><div style="width:34px"></div></div>
+  <div class="scroll" style="padding:0 16px">
+    <div style="background:#F7F9FB;border-radius:14px;padding:14px;margin-bottom:16px;display:flex;gap:10px"><div style="width:36px;height:36px;background:#FEE2E2;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><div><div style="font-size:13px;font-weight:700;color:#0F172A">&#8358;150,000 from UBA</div><div style="font-size:11px;color:#64748B;margin-top:3px">3 verification signals checked &middot; All failed</div></div></div>
+    <div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px">Verification Signals</div>
+    <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:16px">
+      <div style="background:white;border:1px solid #E2E8F0;border-radius:12px;padding:12px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div style="width:24px;height:24px;border-radius:7px;background:#FEE2E2;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="4" x2="4" y2="12"/><line x1="4" y1="4" x2="12" y2="12"/></svg></div><div style="font-size:12px;font-weight:700;color:#0F172A">Bank Ledger Check</div><div style="margin-left:auto;background:#FEE2E2;color:#DC2626;padding:2px 8px;border-radius:20px;font-size:9.5px;font-weight:700">FAILED</div></div>
+        <div style="font-size:11px;color:#64748B;line-height:1.5">No transaction matching this reference, amount, or sender was found in UBA&apos;s real-time ledger within the last 30 minutes.</div>
+      </div>
+      <div style="background:white;border:1px solid #E2E8F0;border-radius:12px;padding:12px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div style="width:24px;height:24px;border-radius:7px;background:#FEE2E2;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="4" x2="4" y2="12"/><line x1="4" y1="4" x2="12" y2="12"/></svg></div><div style="font-size:12px;font-weight:700;color:#0F172A">Reference Format</div><div style="margin-left:auto;background:#FEF3C7;color:#D97706;padding:2px 8px;border-radius:20px;font-size:9.5px;font-weight:700">SUSPECT</div></div>
+        <div style="font-size:11px;color:#64748B;line-height:1.5">Reference &ldquo;UBA2024***501&rdquo; doesn&apos;t match UBA&apos;s standard format. Likely manually constructed.</div>
+      </div>
+      <div style="background:white;border:1px solid #E2E8F0;border-radius:12px;padding:12px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div style="width:24px;height:24px;border-radius:7px;background:#FEF3C7;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"><path d="M8 1L1 15h14L8 1z"/></svg></div><div style="font-size:12px;font-weight:700;color:#0F172A">SMS Sender ID</div><div style="margin-left:auto;background:#FEF3C7;color:#D97706;padding:2px 8px;border-radius:20px;font-size:9.5px;font-weight:700">SPOOFED</div></div>
+        <div style="font-size:11px;color:#64748B;line-height:1.5">Sender ID &ldquo;UBA Nigeria&rdquo; matches the bank&apos;s real ID but originated from a non-bank SMS gateway.</div>
+      </div>
+    </div>
+    <div style="background:#F7F9FB;border-radius:14px;padding:14px;margin-bottom:16px"><div style="font-size:12px;font-weight:700;color:#0F172A;margin-bottom:6px">What you should do</div><div style="font-size:11.5px;color:#64748B;line-height:1.65">Ask the customer to transfer to your Veri-phy virtual account (0123 456 789 &middot; Providus Bank). When funds arrive, you&apos;ll see VERIFIED immediately.</div></div>
+  </div>
+</div>
+
+<!-- S22 SCREENSHOT UPLOAD -->
+<div class="scr" id="s21" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div class="topbar"><div class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></div><div class="pg-title">Verify Screenshot</div><div style="width:34px"></div></div>
+  <div class="scroll" style="padding:0 18px;display:flex;flex-direction:column;gap:14px">
+    <div style="font-size:12.5px;color:#64748B;line-height:1.6">Customer sent you a payment screenshot? Upload it and Veri-phy will extract and verify the transaction details.</div>
+    <div style="border:2px dashed #E2E8F0;border-radius:16px;padding:28px 20px;display:flex;flex-direction:column;align-items:center;gap:12px;background:#F7F9FB;cursor:pointer">
+      <div style="width:52px;height:52px;background:#EAFBF8;border-radius:16px;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+      <div style="font-size:14px;font-weight:700;color:#0F172A;text-align:center">Upload payment screenshot</div>
+      <div style="font-size:11.5px;color:#64748B;text-align:center;line-height:1.5">Tap to choose from gallery or take a photo</div>
+      <div style="display:flex;gap:10px"><div style="background:white;border:1.5px solid #E2E8F0;border-radius:10px;padding:8px 14px;font-size:12px;font-weight:600;color:#0F172A">Gallery</div><div style="background:#0B3D3A;border-radius:10px;padding:8px 14px;font-size:12px;font-weight:600;color:white">Camera</div></div>
+    </div>
+    <div style="background:#F7F9FB;border-radius:14px;padding:14px;border:1px solid #E2E8F0">
+      <div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px">Works with</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px">
+        <div style="background:white;border:1px solid #E2E8F0;border-radius:9px;padding:5px 11px;font-size:11px;font-weight:600;color:#0F172A">GTBank SMS</div>
+        <div style="background:white;border:1px solid #E2E8F0;border-radius:9px;padding:5px 11px;font-size:11px;font-weight:600;color:#0F172A">Access Bank</div>
+        <div style="background:white;border:1px solid #E2E8F0;border-radius:9px;padding:5px 11px;font-size:11px;font-weight:600;color:#0F172A">UBA Alert</div>
+        <div style="background:white;border:1px solid #E2E8F0;border-radius:9px;padding:5px 11px;font-size:11px;font-weight:600;color:#0F172A">Opay</div>
+        <div style="background:white;border:1px solid #E2E8F0;border-radius:9px;padding:5px 11px;font-size:11px;font-weight:600;color:#0F172A">Palmpay</div>
+        <div style="background:white;border:1px solid #E2E8F0;border-radius:9px;padding:5px 11px;font-size:11px;font-weight:600;color:#94A3B8">+12 more</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S23 RECEIPT RESULT -->
+<div class="scr" id="s22" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div class="topbar"><div class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></div><div class="pg-title">Verification Result</div><div style="width:34px"></div></div>
+  <div class="scroll" style="padding:0 18px">
+    <div style="background:#F7F9FB;border-radius:14px;padding:10px;margin-bottom:16px;border:1px solid #E2E8F0">
+      <div style="width:100%;height:80px;background:linear-gradient(135deg,#E2E8F0,#CBD5E1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;position:relative"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div style="position:absolute;top:6px;right:6px;background:#22C55E;color:white;padding:3px 8px;border-radius:20px;font-size:9px;font-weight:700">Analysed</div></div>
+      <div style="font-size:10px;color:#94A3B8;text-align:center">Uploaded screenshot &middot; GTBank_receipt.jpg</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;background:#EAFBF8;border:1.5px solid #14B8A6;border-radius:14px;padding:14px;margin-bottom:14px">
+      <div style="width:32px;height:32px;background:#22C55E;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2 8 6 12 14 4"/></svg></div>
+      <div><div style="font-size:15px;font-weight:900;color:#0B3D3A">VERIFIED</div><div style="font-size:10.5px;color:#64748B;margin-top:2px">Receipt matches bank ledger</div></div>
+    </div>
+    <div style="background:white;border-radius:14px;border:1px solid #E2E8F0;padding:0 14px;margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #E2E8F0;font-size:11.5px"><span style="color:#64748B">Extracted amount</span><span style="font-weight:700;color:#0F172A">&#8358;25,000</span></div>
+      <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #E2E8F0;font-size:11.5px"><span style="color:#64748B">Bank</span><span style="font-weight:700;color:#0F172A">GTBank Nigeria</span></div>
+      <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #E2E8F0;font-size:11.5px"><span style="color:#64748B">Reference</span><span style="font-weight:700;color:#0F172A">TXN****8301</span></div>
+      <div style="display:flex;justify-content:space-between;padding:10px 0;font-size:11.5px"><span style="color:#64748B">Ledger match</span><span style="font-weight:700;color:#16A34A">CONFIRMED</span></div>
+    </div>
+    <button class="btn-full btn-pr" style="margin-bottom:10px">&#10003; Safe to Release Goods</button>
+    <button class="btn-full btn-lt">Verify another screenshot</button>
+  </div>
+</div>
+
+<!-- S24 FRAUD REPORT -->
+<div class="scr" id="s23" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div class="topbar"><div class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></div><div class="pg-title">Report Fraud</div><div style="width:34px"></div></div>
+  <div class="scroll" style="padding:0 18px;display:flex;flex-direction:column;gap:14px">
+    <div style="background:#FEF2F2;border:1px solid rgba(239,68,68,0.15);border-radius:14px;padding:12px 14px;font-size:12px;color:#7F1D1D;line-height:1.5">Your report helps protect thousands of merchants. We share fraud patterns with partner banks to block repeat offenders.</div>
+    <div>
+      <div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:7px">What happened?</div>
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <label style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#F7F9FB;border:1.5px solid #14B8A6;border-radius:12px;cursor:pointer"><div style="width:16px;height:16px;border-radius:50%;background:#14B8A6;display:flex;align-items:center;justify-content:center;flex-shrink:0"><div style="width:6px;height:6px;background:white;border-radius:50%"></div></div><span style="font-size:12.5px;font-weight:600;color:#0F172A">Fake SMS alert received</span></label>
+        <label style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#F7F9FB;border:1.5px solid #E2E8F0;border-radius:12px;cursor:pointer"><div style="width:16px;height:16px;border-radius:50%;border:2px solid #E2E8F0;flex-shrink:0"></div><span style="font-size:12.5px;font-weight:600;color:#0F172A">Edited screenshot shown</span></label>
+        <label style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#F7F9FB;border:1.5px solid #E2E8F0;border-radius:12px;cursor:pointer"><div style="width:16px;height:16px;border-radius:50%;border:2px solid #E2E8F0;flex-shrink:0"></div><span style="font-size:12.5px;font-weight:600;color:#0F172A">Transfer reversed after goods given</span></label>
+        <label style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#F7F9FB;border:1.5px solid #E2E8F0;border-radius:12px;cursor:pointer"><div style="width:16px;height:16px;border-radius:50%;border:2px solid #E2E8F0;flex-shrink:0"></div><span style="font-size:12.5px;font-weight:600;color:#0F172A">Other (describe below)</span></label>
+      </div>
+    </div>
+    <div><div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:7px">Additional details (optional)</div><div style="border:1.5px solid #E2E8F0;border-radius:12px;padding:12px 14px;min-height:70px;font-size:12.5px;color:#94A3B8">Describe what happened&hellip;</div></div>
+    <button class="btn-full btn-rd">Submit Fraud Report</button>
+    <div style="font-size:11px;color:#94A3B8;text-align:center;line-height:1.5">Reports are reviewed within 24 hours. We may contact you for more details.</div>
+  </div>
+</div>
+
+<!-- S25 SETTINGS -->
+<div class="scr" id="s24">
+  <div style="background:#0B3D3A;flex-shrink:0"><div class="sbd" style="background:transparent"><span>9:41</span></div><div style="padding:10px 18px 20px"><div style="font-size:20px;font-weight:800;color:white;letter-spacing:-0.5px">Settings</div></div></div>
+  <div class="scroll" style="background:#F7F9FB;padding:12px 14px">
+    <div style="font-size:10.5px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;padding:0 4px 8px">Protection</div>
+    <div style="background:white;border-radius:16px;overflow:hidden;border:1px solid #E2E8F0;margin-bottom:14px">
+      <div style="display:flex;align-items:center;gap:10px;padding:13px 14px;border-bottom:1px solid #E2E8F0"><div style="width:32px;height:32px;border-radius:9px;background:#EAFBF8;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0B3D3A" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:#0F172A">SMS Protection</div><div style="font-size:10px;color:#94A3B8;margin-top:1px">Reading payment alerts</div></div><div style="width:40px;height:22px;background:#14B8A6;border-radius:11px;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;right:2px;width:18px;height:18px;background:white;border-radius:9px;box-shadow:0 1px 3px rgba(0,0,0,0.2)"></div></div></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:13px 14px;border-bottom:1px solid #E2E8F0"><div style="width:32px;height:32px;border-radius:9px;background:#EAFBF8;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0B3D3A" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:#0F172A">Overlay Warnings</div><div style="font-size:10px;color:#94A3B8;margin-top:1px">Appear over active apps</div></div><div style="width:40px;height:22px;background:#14B8A6;border-radius:11px;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;right:2px;width:18px;height:18px;background:white;border-radius:9px;box-shadow:0 1px 3px rgba(0,0,0,0.2)"></div></div></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:13px 14px"><div style="width:32px;height:32px;border-radius:9px;background:#EAFBF8;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0B3D3A" stroke-width="2" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:#0F172A">Push Notifications</div><div style="font-size:10px;color:#94A3B8;margin-top:1px">Fraud alerts and updates</div></div><div style="width:40px;height:22px;background:#14B8A6;border-radius:11px;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;right:2px;width:18px;height:18px;background:white;border-radius:9px;box-shadow:0 1px 3px rgba(0,0,0,0.2)"></div></div></div>
+    </div>
+    <div style="font-size:10.5px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;padding:0 4px 8px">Account</div>
+    <div style="background:white;border-radius:16px;overflow:hidden;border:1px solid #E2E8F0;margin-bottom:14px">
+      <div style="display:flex;align-items:center;gap:10px;padding:13px 14px;border-bottom:1px solid #E2E8F0;cursor:pointer"><div style="width:32px;height:32px;border-radius:9px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/></svg></div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:#0F172A">Merchant Profile</div><div style="font-size:10px;color:#94A3B8;margin-top:1px">POS Agent &middot; GTBank</div></div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:13px 14px;border-bottom:1px solid #E2E8F0;cursor:pointer"><div style="width:32px;height:32px;border-radius:9px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:#0F172A">Privacy Controls</div><div style="font-size:10px;color:#94A3B8;margin-top:1px">Data and permissions</div></div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:13px 14px;cursor:pointer"><div style="width:32px;height:32px;border-radius:9px;background:#FFF7ED;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:#0F172A">Help &amp; Support</div></div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </div>
+    <div style="background:white;border-radius:16px;overflow:hidden;border:1px solid #E2E8F0;margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:10px;padding:13px 14px;cursor:pointer"><div style="width:32px;height:32px;border-radius:9px;background:#FEF2F2;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></div><div style="flex:1;font-size:13px;font-weight:600;color:#DC2626">Sign Out</div></div>
+    </div>
+    <div style="font-size:10px;color:#94A3B8;text-align:center">Veri-phy v2.4.1 &middot; NDPR Compliant</div>
+  </div>
+</div>
+
+<!-- S26 PRIVACY -->
+<div class="scr" id="s25" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div class="topbar"><div class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></div><div class="pg-title">Privacy Controls</div><div style="width:34px"></div></div>
+  <div class="scroll" style="padding:0 16px;display:flex;flex-direction:column;gap:12px">
+    <div style="background:#F7F9FB;border-radius:14px;padding:14px;border:1px solid #E2E8F0"><div style="font-size:12px;font-weight:700;color:#0F172A;margin-bottom:4px">Your data belongs to you</div><div style="font-size:11.5px;color:#64748B;line-height:1.55">Export or delete all your data at any time. We never sell your transaction patterns to third parties.</div></div>
+    <div style="background:white;border-radius:16px;overflow:hidden;border:1px solid #E2E8F0">
+      <div style="font-size:10.5px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;padding:12px 14px 8px">Data Collection</div>
+      <div style="display:flex;align-items:center;gap:10px;padding:11px 14px;border-top:1px solid #E2E8F0"><div style="flex:1"><div style="font-size:12.5px;font-weight:600;color:#0F172A">Share anonymised fraud patterns</div><div style="font-size:10px;color:#94A3B8;margin-top:2px">Helps protect other merchants</div></div><div style="width:40px;height:22px;background:#14B8A6;border-radius:11px;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;right:2px;width:18px;height:18px;background:white;border-radius:9px;box-shadow:0 1px 3px rgba(0,0,0,0.2)"></div></div></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:11px 14px;border-top:1px solid #E2E8F0"><div style="flex:1"><div style="font-size:12.5px;font-weight:600;color:#0F172A">Activity analytics</div><div style="font-size:10px;color:#94A3B8;margin-top:2px">Improves verification accuracy</div></div><div style="width:40px;height:22px;background:#14B8A6;border-radius:11px;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;right:2px;width:18px;height:18px;background:white;border-radius:9px;box-shadow:0 1px 3px rgba(0,0,0,0.2)"></div></div></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:11px 14px;border-top:1px solid #E2E8F0"><div style="flex:1"><div style="font-size:12.5px;font-weight:600;color:#0F172A">Marketing communications</div><div style="font-size:10px;color:#94A3B8;margin-top:2px">Product updates and offers</div></div><div style="width:40px;height:22px;background:#E2E8F0;border-radius:11px;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;left:2px;width:18px;height:18px;background:white;border-radius:9px;box-shadow:0 1px 3px rgba(0,0,0,0.2)"></div></div></div>
+    </div>
+    <div style="display:flex;gap:10px"><button style="flex:1;padding:12px;border-radius:12px;background:#F7F9FB;color:#0F172A;font-size:12px;font-weight:700;border:1px solid #E2E8F0">Export My Data</button><button style="flex:1;padding:12px;border-radius:12px;background:#FEF2F2;color:#DC2626;font-size:12px;font-weight:700;border:1px solid rgba(239,68,68,0.15)">Delete Account</button></div>
+  </div>
+</div>
+
+<!-- S27 ERROR -->
+<div class="scr" id="s26" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div class="topbar"><div class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></div><div class="pg-title">Verification</div><div style="width:34px"></div></div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;gap:14px;text-align:center">
+    <div style="width:72px;height:72px;border-radius:22px;background:#FEF2F2;display:flex;align-items:center;justify-content:center;margin-bottom:6px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+    <div style="font-size:20px;font-weight:800;color:#0F172A;letter-spacing:-0.4px">Verification failed</div>
+    <div style="font-size:13px;color:#64748B;line-height:1.65;max-width:220px">We couldn&apos;t reach the bank&apos;s server right now. This may be a temporary issue on their end.</div>
+    <div style="background:#FEF2F2;border:1px solid rgba(239,68,68,0.15);border-radius:12px;padding:12px 14px;font-size:11.5px;color:#7F1D1D;line-height:1.5;text-align:left;width:100%">Do not release goods until you confirm payment manually or try again.</div>
+    <button style="background:#0B3D3A;color:white;padding:13px;border-radius:12px;font-size:14px;font-weight:700;border:none;cursor:pointer;width:100%;margin-top:4px">Try Again</button>
+    <div style="font-size:12px;color:#94A3B8">Or verify manually via your bank app</div>
+  </div>
+</div>
+
+<!-- S28 EMPTY -->
+<div class="scr" id="s27">
+  <div style="background:#0B3D3A;flex-shrink:0"><div class="sbd" style="background:transparent"><span>9:41</span></div><div style="padding:10px 18px 20px"><div style="font-size:20px;font-weight:800;color:white;letter-spacing:-0.5px">Activity</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px">No verifications yet</div></div></div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;gap:14px;text-align:center;background:#F7F9FB">
+    <div style="width:80px;height:80px;border-radius:24px;background:#EAFBF8;display:flex;align-items:center;justify-content:center;margin-bottom:6px"><svg width="36" height="36" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="#14B8A6" stroke-width="2" stroke-dasharray="4 4"/><path d="M24 16v8l4 4" stroke="#0B3D3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div style="font-size:18px;font-weight:800;color:#0F172A;letter-spacing:-0.4px">No activity yet</div>
+    <div style="font-size:13px;color:#64748B;line-height:1.65;max-width:220px">Once you receive a payment SMS, Veri-phy will automatically verify it and show the verdict here.</div>
+    <div style="background:white;border:1px solid #E2E8F0;border-radius:16px;padding:14px 16px;width:100%;text-align:left"><div style="font-size:11.5px;font-weight:700;color:#0F172A;margin-bottom:8px">Waiting for your first alert&hellip;</div><div style="display:flex;align-items:center;gap:8px"><div style="width:8px;height:8px;background:#22C55E;border-radius:50%;animation:dot 2s infinite;flex-shrink:0"></div><div style="font-size:11px;color:#64748B">Protection is active and monitoring SMS</div></div></div>
+  </div>
+  <div class="bnav">
+    <div class="bni"><div class="bni-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div class="bni-lbl">Home</div></div>
+    <div class="bni act"><div class="bni-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B3D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="bni-lbl" style="color:#0B3D3A">Activity</div></div>
+    <div class="bni"><div class="bni-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="bni-lbl">Shield</div></div>
+    <div class="bni"><div class="bni-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/></svg></div><div class="bni-lbl">Profile</div></div>
+  </div>
+</div>
+
+<!-- S29 OFFLINE -->
+<div class="scr" id="s28" style="background:white">
+  <div class="sbl" style="color:#0F172A;background:white"><span>9:41</span></div>
+  <div style="background:#FEF3C7;padding:10px 16px;flex-shrink:0;display:flex;align-items:center;gap:8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round"><path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.56 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg><div style="font-size:11.5px;font-weight:600;color:#92400E">You&apos;re offline &mdash; cached verdicts available</div></div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;gap:14px;text-align:center">
+    <div style="width:80px;height:80px;border-radius:24px;background:#FEF3C7;display:flex;align-items:center;justify-content:center;margin-bottom:6px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round"><path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.56 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg></div>
+    <div style="font-size:19px;font-weight:800;color:#0F172A;letter-spacing:-0.4px;line-height:1.2">No internet connection</div>
+    <div style="font-size:13px;color:#64748B;line-height:1.65;max-width:220px">Realtime verification is paused. Last known verdicts are shown from cache. Reconnect to resume full protection.</div>
+    <div style="background:#F7F9FB;border-radius:14px;padding:14px;width:100%;border:1px solid #E2E8F0"><div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px">Offline Mode</div><div style="display:flex;justify-content:space-between;font-size:12px;color:#64748B;margin-bottom:6px"><span>Cached verdicts</span><span style="font-weight:700;color:#0F172A">44 available</span></div><div style="display:flex;justify-content:space-between;font-size:12px;color:#64748B"><span>Last sync</span><span style="font-weight:700;color:#0F172A">2 mins ago</span></div></div>
+    <button style="background:#F59E0B;color:white;padding:13px;border-radius:12px;font-size:14px;font-weight:700;border:none;cursor:pointer;width:100%">Try Reconnecting</button>
+  </div>
+</div>
+
+<!-- S30 REALTIME NOTIFICATION -->
+<div class="scr" id="s29" style="background:#ECE5DD;position:relative">
+  <div style="background:#075E54;padding:30px 14px 10px;display:flex;align-items:center;gap:9px;flex-shrink:0">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="white" opacity="0.8"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    <div style="font-size:12px;font-weight:700;color:white">WhatsApp Business</div>
+  </div>
+  <div style="padding:10px;flex:1">
+    <div style="background:white;border-radius:2px 10px 10px 10px;padding:10px 12px;max-width:220px;box-shadow:0 1px 3px rgba(0,0,0,0.1)"><div style="font-size:9px;font-weight:800;color:#075E54;margin-bottom:4px">GTBank Nigeria</div><div style="font-size:18px;font-weight:900;color:#0B3D3A;margin:4px 0">&#8358;25,000.00</div><div style="font-size:10.5px;color:#333">received. IBRAHIM A. &middot; TXN****8301</div><div style="font-size:8.5px;color:#94A3B8;text-align:right;margin-top:5px">9:41 AM</div></div>
+  </div>
+  <!-- Notification Toast -->
+  <div style="position:absolute;top:72px;left:10px;right:10px;background:white;border-radius:16px;padding:12px 14px;box-shadow:0 8px 32px rgba(0,0,0,0.2);z-index:30;display:flex;align-items:center;gap:10px;animation:pu 0.4s cubic-bezier(0.34,1.56,0.64,1)">
+    <div style="width:36px;height:36px;background:#0B3D3A;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 5.5V10c0 3.87 2.95 7.49 7 8.5 4.05-1.01 7-4.63 7-8.5V5.5L10 2z" fill="white"/><path d="M7.5 10l2 2 3-3" stroke="#14B8A6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div style="flex:1"><div style="font-size:11px;font-weight:800;color:#0B3D3A">Veri-phy &middot; VERIFIED</div><div style="font-size:10px;color:#64748B;margin-top:1px">&#8358;25,000 from GTBank confirmed &#10003;</div></div>
+    <div style="width:8px;height:8px;background:#22C55E;border-radius:50%;flex-shrink:0;animation:dot 2s infinite"></div>
+  </div>
+  <!-- Compact bottom chip -->
+  <div style="position:absolute;bottom:0;left:0;right:0;background:white;border-radius:18px 18px 0 0;padding:12px 14px 20px;box-shadow:0 -6px 24px rgba(0,0,0,0.15)">
+    <div style="width:28px;height:4px;background:#E2E8F0;border-radius:2px;margin:0 auto 12px"></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#EAFBF8;border:1.5px solid #14B8A6;border-radius:12px;padding:10px 12px">
+      <div style="display:flex;align-items:center;gap:8px"><div style="width:26px;height:26px;background:#22C55E;border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2 8 6 12 14 4"/></svg></div><div><div style="font-size:12px;font-weight:800;color:#0B3D3A">VERIFIED &middot; &#8358;25,000</div><div style="font-size:9.5px;color:#64748B">GTBank &middot; Tap to see full report</div></div></div>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </div>
+  </div>
+</div>
+
+      </div><!-- end phone-scr -->
+    </div><!-- end phone-frame -->
+
+    <!-- INFO PANEL -->
+    <div class="info-p" id="infoPanel">
+      <div class="ip-num" id="ipNum">Screen 01 / 30</div>
+      <div class="ip-title" id="ipTitle">Splash Screen</div>
+      <div class="ip-desc" id="ipDesc">Brand intro screen with animated logo reveal, progress indicator, and tagline. Shown for ~2.5 seconds before proceeding to Welcome.</div>
+      <div class="ip-notes" id="ipNotes"></div>
+    </div>
+
+  </div><!-- end main-body -->
+</div><!-- end main -->
+
+<script src="script.js"></script>
+</body>
+</html>
