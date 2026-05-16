@@ -17,6 +17,7 @@ const screens=[
   {t:"VERIFIED Overlay",d:"Full green VERIFIED state. Confirmed transaction details. 'Safe to Release Goods' CTA.",notes:["Green circle + checkmark dominates visually","Transaction: amount, bank, sender, ref, time","'Safe to Release Goods' is primary action","Dismiss on swipe down or tap anywhere"]},
   {t:"PENDING Overlay",d:"Amber PENDING state. Transfer processing. ETA displayed. Auto-refreshes when settled.",notes:["Amber palette throughout — clear but not alarming","'PENDING' not 'UNKNOWN' — specific language","ETA pulls from NIBSS processing estimate","Auto-upgrades to VERIFIED when cleared"]},
   {t:"FAKE Overlay",d:"Red high-risk state for unmatched transactions. Clear warning. 'Do Not Release Goods'.",notes:["Red but not panic-inducing visual design","'NOT FOUND' language — calm but firm","Risk level: CRITICAL in details","Links to report fraud and explainability"]},
+  {t:"DUPLICATE Overlay",d:"Purple state for a real but already-counted receipt. Two chat bubbles show the resend. Non-alarm warning.",notes:["Purple palette — distinct from green, amber, and red","Two chat bubbles illustrate the resent receipt","'ALREADY VERIFIED' not 'ERROR' — transaction is genuine","Shows first-verified time and how many times presented"]},
   {t:"Activity History",d:"Full history with filter chips. Date grouping. Tap to view detail. Swipe shortcut for report.",notes:["Filter chips update list in real-time","Date headers: Today, Yesterday, etc.","Swipe left on item = report fraud shortcut","Export option in top right corner"]},
   {t:"Fraud Details",d:"Detail view for a fake/fraud alert. Red gradient header. Full data. Action buttons.",notes:["Red gradient header signals danger clearly","Alert details in structured card table","'Why This Verdict?' leads to explainability","'Report Fraud' opens report flow"]},
   {t:"Why This Verdict?",d:"3 verification signals with individual pass/fail status. Plain language per signal.",notes:["Signals: Ledger Check, Ref Format, Sender ID","Each has PASSED/SUSPECT/FAILED badge","Plain English explanation for each signal","Ends with 'What you should do' section"]},
@@ -43,13 +44,13 @@ function update(){
   const s=screens[cur];
   const n=(cur<9?'0':'')+(cur+1);
   document.getElementById('scrTitle').textContent=n+' — '+s.t;
-  document.getElementById('ctr').textContent=(cur+1)+' / 30';
-  document.getElementById('ipNum').textContent='Screen '+n+' / 30';
+  document.getElementById('ctr').textContent=(cur+1)+' / 31';
+  document.getElementById('ipNum').textContent='Screen '+n+' / 31';
   document.getElementById('ipTitle').textContent=s.t;
   document.getElementById('ipDesc').textContent=s.d;
   document.getElementById('ipNotes').innerHTML=s.notes.map(n=>'<div class="ip-note"><div class="ip-dot"></div><div class="ip-nt">'+n+'</div></div>').join('');
 }
-function next(){go(Math.min(cur+1,29))}
+function next(){go(Math.min(cur+1,30))}
 function prev(){go(Math.max(cur-1,0))}
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowRight'||e.key==='ArrowDown')next();
